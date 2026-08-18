@@ -2,7 +2,7 @@
 - Deploy: https://adorable-ganache-1efccd.netlify.app/
 # Установка
 ```
-Открыть файл index.html любым удобным браузером
+Распаковать архив и открыть файл index.html любым удобным браузером
 ```
 
 # docker
