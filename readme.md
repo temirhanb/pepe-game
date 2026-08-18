@@ -1,10 +1,8 @@
 # Важно!!
-- Deploy: https://users-list-project.netlify.app/
+- Deploy: https://adorable-ganache-1efccd.netlify.app/
 # Установка
 ```
-npm i
-# or
-yarn 
+Открыть файл index.html любым удобным браузером
 ```
 
 # docker
@@ -12,14 +10,7 @@ yarn
 npm run docker
 ```
 
-Запуск на локальной машине:
+Об игре:
+```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```

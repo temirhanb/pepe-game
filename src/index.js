@@ -185,7 +185,7 @@ const initialState = () => ({
 
 const currentState = localStorage.getItem("state");
 
-let state = currentState !== "" ? JSON.parse(currentState) : initialState();
+let state = currentState ? JSON.parse(currentState) : initialState();
 let lastTime = performance.now();
 
 // Редюсер расчёта штрафа
