@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/index.css">
+    <title>Пепа: Симулятор Болота Тягучего</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bad+Script&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">День Пепы =D</div>
+    <div class="stats">
+        <div class="stat-lotus">‫🪷 <span id="lotusCount">0</span></div>
+        <div class="stat-passive">⚡ <span id="passiveCount">0</span>/сек</div>
+        <div class="stat-diamond">
+            <div class="premium-btn" id="openPremium">
+      <span>
+💎</span>
+                <span id="diamondCount">100</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layout">
+    <div class="clicker-zone">
+        <div class="pond" id="pond">
+            <div class="lily-pad"></div>
+            <div class="pepa" id="pepa">
+                <img src="public/pepe-main.png">
+            </div>
+        </div>
+        <div class="click-power-info">
+            +<span id="clickPower">1</span> 🪷 за клик<br>
+            <span style="font-size: 0.5rem; color: #666; margin-top: 5px; display: block;">(шанс штрафа 10% | шанс удачи <span
+                    id="luckChance">5</span>%)</span>
+        </div>
+        <button class="restart-btn" id="restartBtn">Сбросить лотусы</button>
+    </div>
+    <div class="shop-panel">
+        <div class="shop-title">КОНТРАКТЫ ЖАБЫЧА</div>
+        <div id="shopContainer"></div>
+    </div>
+</div>
+
+<div class="active-effects" id="effectsContainer"></div>
+
+<!-- ====== PREMIUM SHOP MODAL ====== -->
+<div class="modal-overlay" id="premiumOverlay">
+    <div class="premium-modal">
+        <div class="premium-header">
+            <div class="premium-title">
+                💎 СКАМ!!!
+            </div>
+            <div class="premium-balance">
+                💎 <span id="modalDiamondCount">100</span></div>
+            <button class="close-modal" id="closePremium">&times;</button>
+        </div>
+        <div id="premiumShopContainer"></div>
+        <button class="buy-diamonds-btn" id="buyDiamondsBtn">
+            +50 💎 ЗА 99$ + налоги + доставка + на пиво)
+        </button>
+    </div>
+</div>
+</body>
+<script src="src/index.js"></script>
+</html>
