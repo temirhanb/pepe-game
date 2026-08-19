@@ -485,8 +485,7 @@ const updateUI = (state) => {
   const effectiveTax = state.taxExemptionTimer > 0 ? 0 : state.taxRate;
   const realPassive = (state.passiveIncome + state.tempPassiveBuff) * state.passiveMult - (state.lotuses * effectiveTax);
   passiveEl.textContent = formatNum(Math.max(0, realPassive));
-  const effectiveClickPower = state.clickPower * (state.energyTimer > 0 ? 3 : 1) * state.tempClickBuff;
-  clickPowerEl.textContent = effectiveClickPower;
+  clickPowerEl.textContent = state.clickPower * (state.energyTimer > 0 ? 3 : 1) * state.tempClickBuff;
   luckChanceEl.textContent = Math.round(state.positiveChance * 100);
   diamondEl.textContent = state.diamonds;
   modalDiamondEl.textContent = state.diamonds;
@@ -503,7 +502,12 @@ const renderPremiumShopDOM = (state) => {
 const triggerJumpEffect = (type) => {
   pepaEl.classList.remove("jumping", "damaged", "lucky");
   void pepaEl.offsetWidth;
-
+  const changeRippleStyle = (ripple) => {
+    ripple.style.left = (pondEl.offsetWidth / 2 - 5) + "px";
+    ripple.style.top = (pondEl.offsetHeight / 2 - 5) + "px";
+    pondEl.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 800);
+  };
   if (type === "damage") {
     pepaEl.classList.add("damaged");
     document.body.classList.remove("shake");
@@ -514,18 +518,12 @@ const triggerJumpEffect = (type) => {
     pepaEl.classList.add("lucky");
     const ripple = document.createElement("div");
     ripple.className = "ripple gold";
-    ripple.style.left = (pondEl.offsetWidth / 2 - 5) + "px";
-    ripple.style.top = (pondEl.offsetHeight / 2 - 5) + "px";
-    pondEl.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 800);
+    changeRippleStyle(ripple);
   } else {
     pepaEl.classList.add("jumping");
     const ripple = document.createElement("div");
     ripple.className = "ripple";
-    ripple.style.left = (pondEl.offsetWidth / 2 - 5) + "px";
-    ripple.style.top = (pondEl.offsetHeight / 2 - 5) + "px";
-    pondEl.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 800);
+    changeRippleStyle(ripple);
   }
 };
 
